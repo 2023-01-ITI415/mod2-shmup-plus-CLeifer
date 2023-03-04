@@ -5,12 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(BoundsCheck))]
 public class Enemy : MonoBehaviour
 {
+    public ScoreCounter scoreCounter;
 
     [Header("Inscribed: Enemy")]
     public float speed = 10f; // The speed in m/s
     public float fireRate = 0.3f; // Seconds/shot (Unused)
     public float health = 10;
-    public int score = 100; // Points earned for destroying this
+    public int score = 100;
     public float showDamageDuration = 0.1f; // # seconds to show damage
     public float powerUpDropChance = 1f; // Chance to drop a power-up
 
@@ -48,7 +49,12 @@ public class Enemy : MonoBehaviour
             originalColors[i] = materials[i].color;
         }
     }
-
+    
+    void Start()
+    {
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
+    }
 
 
     void Update()
