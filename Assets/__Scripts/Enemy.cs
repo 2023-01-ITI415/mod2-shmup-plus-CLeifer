@@ -4,7 +4,7 @@ using UnityEngine;
 
 [RequireComponent(typeof(BoundsCheck))]
 public class Enemy : MonoBehaviour
-{
+{ 
     public ScoreCounter scoreCounter;
 
     [Header("Inscribed: Enemy")]
@@ -50,13 +50,6 @@ public class Enemy : MonoBehaviour
         }
     }
     
-    void Start()
-    {
-        GameObject scoreGO = GameObject.Find("ScoreCounter");
-        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
-    }
-
-
     void Update()
     {
         Move();
@@ -102,7 +95,7 @@ public class Enemy : MonoBehaviour
             }
             // Destroy the projectile regardless
             Destroy(otherGO);
-
+            
         }
         else
         {
